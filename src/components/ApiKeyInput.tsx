@@ -48,7 +48,7 @@ export function ApiKeyInput({ onApiKeyChange }: ApiKeyInputProps) {
                         type={isVisible ? "text" : "password"}
                         value={apiKey}
                         onChange={(e) => setApiKey(e.target.value)}
-                        placeholder="Enter Gemini API Key"
+                        placeholder="Gemini API Key를 입력해주세요."
                         className="flex-1 p-3 outline-none text-gray-700 bg-transparent placeholder-gray-400 text-sm"
                     />
                     <button
@@ -60,17 +60,17 @@ export function ApiKeyInput({ onApiKeyChange }: ApiKeyInputProps) {
                     <button
                         onClick={handleSave}
                         className={`mx-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${isSaved
-                                ? "bg-green-500 text-white shadow-md"
-                                : "bg-gray-900 text-white hover:bg-gray-800 shadow-md hover:shadow-lg"
+                            ? "bg-green-500 text-white shadow-md"
+                            : "bg-gray-900 text-white hover:bg-gray-800 shadow-md hover:shadow-lg"
                             }`}
                     >
-                        {isSaved ? <Check className="w-4 h-4" /> : "Save"}
+                        {isSaved ? <Check className="w-4 h-4" /> : "저장"}
                     </button>
                 </div>
             </div>
             <div className="flex justify-between mt-2 px-1">
                 <p className="text-xs text-gray-400">
-                    Your key is stored locally in your browser.
+                    API Key는 브라우저 로컬에 저장됩니다.
                 </p>
                 {apiKey && (
                     <button onClick={handleClear} className="text-xs text-red-400 hover:text-red-500 underline">
