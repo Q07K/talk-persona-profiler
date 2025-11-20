@@ -13,7 +13,7 @@ export async function generatePersona(
     const userMessages = messages
         .filter(m => m.sender === targetUser)
         .map(m => m.content)
-        .filter(content => content.length > 1 && !content.includes("이모티콘")) // Filter out very short messages or system/sticker placeholders if possible
+        .filter(content => content.length > 1 && !content.includes("이모티콘") && !content.includes("사진")) // Filter out very short messages or system/sticker placeholders if possible
         .slice(-1000); // Analyze last 1000 messages
 
     console.log(`Found ${userMessages.length} messages for user ${targetUser}`);
@@ -25,6 +25,7 @@ export async function generatePersona(
     const prompt = `
     Analyze the following chat messages from a user named "${targetUser}".
     Identify their speaking style, tone, frequently used words, sentence structure, and personality traits.
+    Response in Korean.
     
     Messages:
     ${userMessages.join('\n')}
