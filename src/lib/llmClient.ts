@@ -8,9 +8,7 @@ export class LLMClient {
     constructor(apiKey: string) {
         this.apiKey = apiKey;
         this.genAI = new GoogleGenerativeAI(apiKey);
-        // User indicated it is Nov 2025 and models < 2.0 are gone.
-        // gemini-2.5-flash gave 503, so we try gemini-2.0-flash as a stable baseline.
-        this.model = this.genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+        this.model = this.genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     }
 
     setModel(modelName: string) {
