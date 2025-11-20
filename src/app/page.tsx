@@ -131,8 +131,8 @@ export default function Home() {
                                 <div className="absolute inset-0 bg-yellow-200 rounded-full blur-xl opacity-50 animate-pulse"></div>
                                 <Loader2 className="w-16 h-16 text-[#FEE500] animate-spin relative z-10" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-2">Analyzing Chat History</h3>
-                            <p className="text-gray-500">Extracting persona for <span className="font-semibold text-gray-800">{selectedUser}</span>...</p>
+                            <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-2">사용자 특성을 분석하고 있습니다...</h3>
+                            <p className="text-gray-500">{selectedUser} 분석 중...</p>
                         </div>
                     )}
 
@@ -142,14 +142,14 @@ export default function Home() {
                                 onClick={() => setAppState('SELECT_USER')}
                                 className="mb-6 text-sm text-gray-500 hover:text-gray-800 hover:underline transition-colors"
                             >
-                                ← Select another user
+                                ← 다른 사용자 선택
                             </button>
-                            <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl">
-                                <ChatInterface
+                            <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl justify-center items-center">
+                                {/* <ChatInterface
                                     personaName={selectedUser}
                                     systemPrompt={personaData.systemPrompt}
                                     apiKey={apiKey}
-                                />
+                                /> */}
                                 <PersonaVisualization
                                     data={personaData}
                                     userName={selectedUser}
