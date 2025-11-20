@@ -6,8 +6,29 @@ AI가 대화 내용을 분석하여 사용자의 말투, 성격, 자주 사용�
 ## 배포 링크
 [https://q07k.github.io/talk-persona-profiler/](https://q07k.github.io/talk-persona-profiler/)
 
+
+
 ## 스크린샷
-![스크린샷](https://user-images.githubusercontent.com/10162718/299666015-61221c56-676b-4161-936b-66c2c222322b.png)
+### 홈 화면
+<img width="1919" height="944" alt="image" src="https://github.com/user-attachments/assets/f6e2ed72-f55c-4198-9dba-18e5875aaa64" />
+
+### 파일 업로드
+Gemini API KEY 입력 후 저장 버튼을 누르면 등장합니다.
+<img width="1919" height="939" alt="image" src="https://github.com/user-attachments/assets/d0c6770e-827b-46ff-8ba3-2f74acb7a6ee" />
+
+### 사용자 선택
+<img width="1918" height="941" alt="image" src="https://github.com/user-attachments/assets/70bc5437-777f-4b82-8a18-65e758b483df" />
+
+### 분석 결과 확인
+<img width="1919" height="937" alt="image" src="https://github.com/user-attachments/assets/68f1a747-5e6c-4249-a0ee-ea76fa8aa2ac" />
+
+### 다른 사용자 선택 / 분석 결과 저장(png)
+<img width="454" height="92" alt="image" src="https://github.com/user-attachments/assets/23b57d79-f955-4486-872f-a12ed8e5b8ac" />
+
+### 분석 결과
+<img width="448" height="931" alt="image" src="https://github.com/user-attachments/assets/7dbc8fea-6191-4d10-98bb-36df7c6fd5e4" />
+
+
 
 ## 주요 기능
 
