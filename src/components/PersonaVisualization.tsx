@@ -1,6 +1,6 @@
 import React from 'react';
 import { PersonaData } from '@/lib/types';
-import { Brain } from 'lucide-react';
+import { Brain, MessageSquare } from 'lucide-react';
 
 interface PersonaVisualizationProps {
     data: PersonaData;
@@ -64,6 +64,16 @@ export function PersonaVisualization({ data, userName }: PersonaVisualizationPro
                         ))}
                     </div>
                 </div>
+            </div>
+
+            {/* Footer Watermark */}
+            <div className="bg-gray-50 px-6 py-3 border-t border-gray-100 flex items-center justify-center gap-1.5">
+                <div className="p-1 bg-[#FEE500] rounded-md">
+                    <MessageSquare className="w-3 h-3 text-[#391b1b]" />
+                </div>
+                <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase">
+                    Kakao Persona Profiler
+                </span>
             </div>
         </div>
     );

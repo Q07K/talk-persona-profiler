@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { toPng } from 'html-to-image';
 import { FileUpload } from '@/components/FileUpload';
 import { UserSelector } from '@/components/UserSelector';
 import { ChatInterface } from '@/components/ChatInterface';
@@ -9,7 +10,7 @@ import { PersonaVisualization } from '@/components/PersonaVisualization';
 import { parseKakaoChat } from '@/lib/parser';
 import { generatePersona } from '@/lib/personaGenerator';
 import { ParsedMessage, PersonaData } from '@/lib/types';
-import { Loader2, MessageSquare } from 'lucide-react';
+import { Loader2, MessageSquare, RotateCcw, Download } from 'lucide-react';
 import { LLMClient } from '@/lib/llmClient';
 
 type AppState = 'INIT' | 'UPLOAD' | 'SELECT_USER' | 'GENERATING' | 'CHAT';
@@ -23,6 +24,22 @@ export default function Home() {
     const [personaData, setPersonaData] = useState<PersonaData | null>(null);
     const [availableModels, setAvailableModels] = useState<string[]>([]);
     const [isCheckingModels, setIsCheckingModels] = useState(false);
+    const visualizationRef = useRef<HTMLDivElement>(null);
+
+    const handleSaveImage = async () => {
+        if (!visualizationRef.current) return;
+
+        try {
+            const dataUrl = await toPng(visualizationRef.current, { cacheBust: true });
+            const link = document.createElement("a");
+            link.download = `${selectedUser}_persona.png`;
+            link.href = dataUrl;
+            link.click();
+        } catch (error) {
+            console.error("Error saving image:", error);
+            alert("이미지 저장 중 오류가 발생했습니다.");
+        }
+    };
 
     const handleApiKeyChange = (key: string) => {
         setApiKey(key);
@@ -138,22 +155,34 @@ export default function Home() {
 
                     {appState === 'CHAT' && personaData && (
                         <div className="flex flex-col items-center w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <button
-                                onClick={() => setAppState('SELECT_USER')}
-                                className="mb-6 text-sm text-gray-500 hover:text-gray-800 hover:underline transition-colors"
-                            >
-                                ← 다른 사용자 선택
-                            </button>
                             <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl justify-center items-center">
                                 {/* <ChatInterface
                                     personaName={selectedUser}
                                     systemPrompt={personaData.systemPrompt}
                                     apiKey={apiKey}
                                 /> */}
-                                <PersonaVisualization
-                                    data={personaData}
-                                    userName={selectedUser}
-                                />
+                                <div ref={visualizationRef} className="w-full max-w-md">
+                                    <PersonaVisualization
+                                        data={personaData}
+                                        userName={selectedUser}
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-full max-w-xl mb-6 flex justify-center gap-4 mt-8">
+                                <button
+                                    onClick={() => setAppState('SELECT_USER')}
+                                    className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 rounded-xl font-medium shadow-sm border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow transition-all duration-200 active:scale-95"
+                                >
+                                    <RotateCcw className="w-4 h-4" />
+                                    다른 사용자 선택
+                                </button>
+                                <button
+                                    onClick={handleSaveImage}
+                                    className="flex items-center gap-2 px-6 py-3 bg-[#FEE500] text-[#391b1b] rounded-xl font-medium shadow-sm hover:bg-[#FDD835] hover:shadow transition-all duration-200 active:scale-95"
+                                >
+                                    <Download className="w-4 h-4" />
+                                    결과 저장
+                                </button>
                             </div>
                         </div>
                     )}
