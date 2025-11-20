@@ -1,6 +1,6 @@
 import React from 'react';
 import { PersonaData } from '@/lib/types';
-import { Brain, Sparkles, MessageSquareQuote } from 'lucide-react';
+import { Brain } from 'lucide-react';
 
 interface PersonaVisualizationProps {
     data: PersonaData;
@@ -13,10 +13,10 @@ export function PersonaVisualization({ data, userName }: PersonaVisualizationPro
             <div className="bg-[#FEE500] px-6 py-4 border-b border-yellow-400/20">
                 <h2 className="text-lg font-bold text-[#391b1b] flex items-center gap-2">
                     <Brain className="w-5 h-5" />
-                    Persona Analysis
+                    {userName}
                 </h2>
                 <p className="text-sm text-[#391b1b]/70 mt-1">
-                    Insights for {userName}
+                    사용자 특성을 분석한 결과입니다.
                 </p>
             </div>
 
@@ -24,8 +24,7 @@ export function PersonaVisualization({ data, userName }: PersonaVisualizationPro
                 {/* Analysis Summary */}
                 <div className="space-y-2">
                     <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-yellow-500" />
-                        Personality Summary
+                        분석 결과
                     </h3>
                     <p className="text-gray-700 text-sm leading-relaxed bg-gray-50 p-3 rounded-xl border border-gray-100">
                         {data.analysis}
@@ -35,7 +34,7 @@ export function PersonaVisualization({ data, userName }: PersonaVisualizationPro
                 {/* Traits */}
                 <div className="space-y-3">
                     <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider">
-                        Key Traits
+                        특성
                     </h3>
                     <div className="flex flex-wrap gap-2">
                         {data.traits.map((trait, index) => (
@@ -52,8 +51,7 @@ export function PersonaVisualization({ data, userName }: PersonaVisualizationPro
                 {/* Frequent Words */}
                 <div className="space-y-3">
                     <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                        <MessageSquareQuote className="w-4 h-4 text-gray-400" />
-                        Frequent Words
+                        자주 사용하는 단어
                     </h3>
                     <div className="flex flex-wrap gap-2">
                         {data.frequentWords.map((word, index) => (
