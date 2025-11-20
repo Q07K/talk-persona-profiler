@@ -93,10 +93,10 @@ export function FileUpload({ onFileSelect }: FileUploadProps) {
                     ) : (
                         <div>
                             <p className="mb-2 text-lg font-semibold text-gray-700">
-                                Drop your KakaoTalk export here
+                                추출된 KakaoTalk 파일을 여기에 올려주세요.
                             </p>
                             <p className="text-sm text-gray-500">
-                                or <span className="text-blue-500 font-medium">browse files</span>
+                                또는 <span className="text-blue-500 font-medium">파일 선택</span>
                             </p>
                         </div>
                     )}
@@ -110,8 +110,8 @@ export function FileUpload({ onFileSelect }: FileUploadProps) {
                 </div>
             </div>
             <p className="mt-4 text-center text-xs text-gray-400">
-                Supports .txt files exported from KakaoTalk PC or Mobile
+                PC 또는 Mobile에서 추출된 .txt 파일을 지원합니다.
             </p>
-        </div>
+        </div >
     );
 }
