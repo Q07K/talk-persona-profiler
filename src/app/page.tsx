@@ -90,7 +90,9 @@ export default function Home() {
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 tracking-tight">Kakao Persona Profiler</h1>
                     <p className="text-lg text-gray-600 max-w-md mx-auto leading-relaxed">
-                        Kakao Talk 채팅 텍스트 파일을 업로드해보세요.<br />AI가 대화를 분석하여 사용자의 특성을 분석해줍니다.
+                        Kakao Talk 채팅 텍스트 파일을 업로드해보세요.
+                        <br />
+                        AI가 대화를 분석하여 사용자의 특성을 분석해줍니다.
                     </p>
                 </div>
 
