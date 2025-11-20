@@ -10,7 +10,7 @@ import { PersonaVisualization } from '@/components/PersonaVisualization';
 import { parseKakaoChat } from '@/lib/parser';
 import { generatePersona } from '@/lib/personaGenerator';
 import { ParsedMessage, PersonaData } from '@/lib/types';
-import { Loader2, MessageSquare, RotateCcw, Download } from 'lucide-react';
+import { Loader2, MessageSquare, RotateCcw, Download, Github } from 'lucide-react';
 import { LLMClient } from '@/lib/llmClient';
 
 type AppState = 'INIT' | 'UPLOAD' | 'SELECT_USER' | 'GENERATING' | 'CHAT';
@@ -188,6 +188,17 @@ export default function Home() {
                     )}
                 </div>
             </div>
+            <a
+                href="https://github.com/Q07K/talk-persona-profiler"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-8 right-8 z-50 flex items-center gap-0 hover:gap-3 bg-[#24292F] text-white p-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group hover:pr-6"
+            >
+                <Github className="w-6 h-6" />
+                <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 whitespace-nowrap text-sm font-medium">
+                    마음에 드셨다면 Star⭐ 를 눌러주세요
+                </span>
+            </a>
         </main>
     );
 }
