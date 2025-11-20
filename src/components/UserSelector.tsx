@@ -13,17 +13,17 @@ export function UserSelector({ users, onSelect }: UserSelectorProps) {
                 <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
                     <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
                         <MessageCircle className="w-5 h-5 text-yellow-500" />
-                        Select a Persona
+                        사용자 선택
                     </h2>
                     <p className="text-sm text-gray-500 mt-1">
-                        Choose a user to mimic from the chat log
+                        사용자를 선택해주세요.
                     </p>
                 </div>
 
                 <div className="max-h-[400px] overflow-y-auto p-2">
                     {users.length === 0 ? (
                         <div className="p-8 text-center text-gray-400">
-                            No users found in the parsed file.
+                            추출된 파일에서 사용자 정보를 찾을 수 없습니다.
                         </div>
                     ) : (
                         <div className="grid gap-2">
@@ -39,9 +39,6 @@ export function UserSelector({ users, onSelect }: UserSelectorProps) {
                                     <div>
                                         <span className="block font-bold text-gray-800 group-hover:text-gray-900">
                                             {user}
-                                        </span>
-                                        <span className="text-xs text-gray-400 group-hover:text-yellow-600 font-medium">
-                                            Tap to chat
                                         </span>
                                     </div>
                                 </button>
