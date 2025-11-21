@@ -98,11 +98,24 @@ export default function Home() {
         }
     };
 
+
+
+    const handleLogoClick = () => {
+        setParsedMessages([]);
+        setUsers([]);
+        setSelectedUser('');
+        setPersonaData(null);
+        setAppState(apiKey ? 'UPLOAD' : 'INIT');
+    };
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-8 bg-[#f0f2f5]">
             <div className="w-full max-w-4xl flex flex-col items-center">
                 <div className="mb-10 text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-[#FEE500] rounded-[28px] mb-6 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div
+                        onClick={handleLogoClick}
+                        className="inline-flex items-center justify-center w-20 h-20 bg-[#FEE500] rounded-[28px] mb-6 shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    >
                         <MessageSquare className="w-10 h-10 text-[#391b1b]" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 tracking-tight">Kakao Persona Profiler</h1>
